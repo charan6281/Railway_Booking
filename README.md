@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Online Railway Reservation System (MongoDB)
 
 A runnable educational full-stack project using HTML, CSS, Bootstrap 5, browser JavaScript, Node.js, Express, MongoDB and Mongoose.
@@ -120,3 +121,6 @@ Send the JWT as `Authorization: Bearer <token>` for protected API calls.
 4. Confirm the booking appears in My Bookings and PNR lookup.
 5. Cancel it and verify the status changes to Cancelled.
 6. Log in as admin and verify trains and reservation statistics.
+=======
+# Railway_Booking
+>>>>>>> 8f7609b1651a74e07a92df6832fc16343b2eff3d
