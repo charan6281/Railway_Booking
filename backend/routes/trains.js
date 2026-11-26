@@ -1,0 +1,11 @@
+const router = require('express').Router();
+const c = require('../controllers/trainController');
+const asyncHandler = require('../utils/asyncHandler');
+const { authenticate, adminOnly } = require('../middleware/auth');
+router.get('/stations', asyncHandler(c.stations));
+router.get('/search', asyncHandler(c.search));
+router.get('/', asyncHandler(c.list));
+router.post('/', authenticate, adminOnly, asyncHandler(c.create));
+router.put('/:id', authenticate, adminOnly, asyncHandler(c.update));
+router.delete('/:id', authenticate, adminOnly, asyncHandler(c.remove));
+module.exports = router;

@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const { body } = require('express-validator');
+const c = require('../controllers/authController');
+const asyncHandler = require('../utils/asyncHandler');
+const { authenticate } = require('../middleware/auth');
+router.post('/register', [body('name').trim().notEmpty(), body('email').isEmail().normalizeEmail(), body('phone').trim().notEmpty(), body('password').isLength({ min: 8 })], asyncHandler(c.register));
+router.post('/login', asyncHandler(c.login));
+router.post('/admin-login', asyncHandler(c.adminLogin));
+router.get('/me', authenticate, asyncHandler(c.me));
+module.exports = router;

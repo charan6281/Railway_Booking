@@ -1,0 +1,12 @@
+const router = require('express').Router();
+const c = require('../controllers/bookingController');
+const asyncHandler = require('../utils/asyncHandler');
+const { authenticate, adminOnly } = require('../middleware/auth');
+router.use(authenticate);
+router.post('/', asyncHandler(c.create));
+router.get('/mine', asyncHandler(c.mine));
+router.get('/pnr/:pnr', asyncHandler(c.pnr));
+router.post('/:id/pay', asyncHandler(c.pay));
+router.post('/cancel/:pnr', asyncHandler(c.cancel));
+router.get('/admin/all', adminOnly, asyncHandler(c.adminAll));
+module.exports = router;
